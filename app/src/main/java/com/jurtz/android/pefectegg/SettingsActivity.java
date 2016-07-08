@@ -1,5 +1,6 @@
 package com.jurtz.android.pefectegg;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -50,12 +51,16 @@ public class SettingsActivity extends AppCompatActivity {
         txtTemperature = (TextView)findViewById(R.id.txtTemperature);
 
         Button cmdCalculateTime = (Button)findViewById(R.id.cmdCalculateTime);
+        final Intent timerIntent = new Intent(this, TimerActivity.class);
+
         cmdCalculateTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                double cookingTime = getCookingTime(Double.parseDouble(txtWeight.getText().toString()), TEMPERATURE_FRIDGE, getBoilingPoint(Double.parseDouble(txtHeightAboveSea.getText().toString())),TEMPERATURE_MEDIUM);
-                Toast.makeText(getApplicationContext(),"Zeit: "+cookingTime,Toast.LENGTH_LONG).show();
-                // Toast.makeText(getApplicationContext(),getBoilingPoint(Double.parseDouble(txtHeightAboveSea.getText().toString()))+"", Toast.LENGTH_SHORT).show();
+                // Kochzeit in Minuten
+                double cookingTime = getCookingTime(Double.parseDouble(txtWeight.getText().toString()), TEMPERATURE_FRIDGE, getBoilingPoint(Double.parseDouble(txtHeightAboveSea.getText().toString())), TEMPERATURE_MEDIUM);
+                int cookingTimeSeconds = (int)Math.round(cookingTime * 60);
+                timerIntent.putExtra("cookingtime_seconds",cookingTimeSeconds);
+                startActivity(timerIntent);
             }
         });
 
