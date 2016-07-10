@@ -9,4 +9,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.jurtz.android.pefectegg.TimerActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="12:34"
+        android:id="@+id/lblTimer"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentStart="false" />
 </RelativeLayout>

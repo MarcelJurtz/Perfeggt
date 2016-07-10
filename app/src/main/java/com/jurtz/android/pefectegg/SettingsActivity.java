@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -57,10 +58,57 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Kochzeit in Minuten
-                double cookingTime = getCookingTime(Double.parseDouble(txtWeight.getText().toString()), TEMPERATURE_FRIDGE, getBoilingPoint(Double.parseDouble(txtHeightAboveSea.getText().toString())), TEMPERATURE_MEDIUM);
-                int cookingTimeSeconds = (int)Math.round(cookingTime * 60);
-                timerIntent.putExtra("cookingtime_seconds",cookingTimeSeconds);
-                startActivity(timerIntent);
+                double temperature = 0;
+                double boilingPoint = 0;
+                double weight = 0;
+                int tInside = 0;
+                boolean entriesOk = true;
+
+                // T Start
+                if(rbTemperatureFridge.isChecked()) {
+                    temperature = TEMPERATURE_FRIDGE;
+                } else if(rbTemperatureRoom.isChecked()) {
+                    temperature = TEMPERATURE_ROOM;
+                } else {
+                    try {
+                        temperature = Double.parseDouble(txtTemperature.getText().toString());
+                    } catch(Exception ex) {
+                        entriesOk = false;
+                    }
+                }
+
+                // Höhe
+                try {
+                    boilingPoint = getBoilingPoint(Double.parseDouble(txtHeightAboveSea.getText().toString()));
+                } catch(Exception ex) {
+                    entriesOk = false;
+                }
+
+                // Gewicht
+                try {
+                    weight = Double.parseDouble(txtWeight.getText().toString());
+                } catch(Exception ex) {
+                    entriesOk = false;
+                }
+
+                // T Ziel
+                if(rbConsistencyHard.isChecked()) {
+                    tInside = TEMPERATURE_HARD;
+                } else if(rbConsistencyMedium.isChecked()) {
+                    tInside = TEMPERATURE_MEDIUM;
+                } else {
+                    tInside = TEMPERATURE_SOFT;
+                }
+
+                // ------------------ KOCHZEIT ------------------
+                if(entriesOk) {
+                    double cookingTime = getCookingTime(weight, temperature, boilingPoint, tInside);
+                    int cookingTimeSeconds = (int)Math.round(cookingTime * 60);
+                    timerIntent.putExtra("cookingtime_seconds",cookingTimeSeconds);
+                    startActivity(timerIntent);
+                } else {
+                    Toast.makeText(getApplicationContext(),"Ungültige Eingaben!",Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
