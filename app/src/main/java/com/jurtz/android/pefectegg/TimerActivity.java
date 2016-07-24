@@ -53,13 +53,16 @@ public class TimerActivity extends AppCompatActivity {
     private Runnable countdownRunnable = new Runnable() {
         @Override
         public void run() {
-            if(cookingTime <= 0) {
-                // Timer beenden
+            if(cookingTime < 0) {
+                // Timer beenden, wenn Zeit abgelaufen ist
+                countdownHandler.removeMessages(0);
                 Toast.makeText(getApplicationContext(),"REMOVE CALLBACK",Toast.LENGTH_SHORT).show();
+            } else {
+                // Textfeld ändern und Zeit reduzieren
+                updateText(cookingTime, lblTime);
+                cookingTime--;
+                countdownHandler.postDelayed(this, 1000);
             }
-            updateText(cookingTime,lblTime);
-            cookingTime--;
-            countdownHandler.postDelayed(this, 1000);
         }
     };
 
