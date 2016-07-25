@@ -1,6 +1,7 @@
 package com.jurtz.android.pefectegg;
 
 import android.content.Intent;
+import android.opengl.Visibility;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -39,10 +40,6 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        rbTemperatureRoom = (RadioButton)findViewById(R.id.rbTemperatureRoom);
-        rbTemperatureFridge = (RadioButton)findViewById(R.id.rbTemperatureFridge);
-        rbTemperatureCustom = (RadioButton)findViewById(R.id.rbTemperatureOther);
-
         rbConsistencySoft = (RadioButton)findViewById(R.id.rbConsistencySoft);
         rbConsistencyMedium = (RadioButton)findViewById(R.id.rbConsistencyMedium);
         rbConsistencyHard = (RadioButton)findViewById(R.id.rbConsistencyHard);
@@ -50,6 +47,20 @@ public class SettingsActivity extends AppCompatActivity {
         txtWeight = (TextView)findViewById(R.id.txtWeight);
         txtHeightAboveSea = (TextView)findViewById(R.id.txtHeightAboveSea);
         txtTemperature = (TextView)findViewById(R.id.txtTemperature);
+
+        rbTemperatureRoom = (RadioButton)findViewById(R.id.rbTemperatureRoom);
+        rbTemperatureFridge = (RadioButton)findViewById(R.id.rbTemperatureFridge);
+        rbTemperatureCustom = (RadioButton)findViewById(R.id.rbTemperatureOther);
+        rbTemperatureCustom.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked) {
+                    txtTemperature.setVisibility(View.VISIBLE);
+                } else {
+                    txtTemperature.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
 
         Button cmdCalculateTime = (Button)findViewById(R.id.cmdCalculateTime);
         final Intent timerIntent = new Intent(this, TimerActivity.class);

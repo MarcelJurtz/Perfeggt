@@ -38,49 +38,52 @@
         android:id="@+id/lblTemperature"
         android:layout_below="@+id/linearLayoutWeight"
         android:layout_alignParentStart="true" />
-    <RadioGroup
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/lblTemperature"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/rgTemperature">
-        <RadioButton
+        android:id="@+id/linearLayoutTemperatureStart"
+        android:layout_below="@id/lblTemperature">
+
+
+        <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Raum (21°C)"
-            android:id="@+id/rbTemperatureRoom" />
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Kühlschrank (4°C)"
-            android:id="@+id/rbTemperatureFridge"
-            android:checked="true" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/linearLayoutTemperature">
+            android:layout_below="@+id/lblTemperature"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/rgTemperature">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Raum (21°C)"
+                android:id="@+id/rbTemperatureRoom" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kühlschrank (4°C)"
+                android:id="@+id/rbTemperatureFridge"
+                android:checked="true" />
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Andere (in °C):"
                 android:id="@+id/rbTemperatureOther" />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/rgTemperature"
-                android:layout_alignParentEnd="true"
-                android:id="@+id/txtTemperature"
-                android:textAlignment="center"
-                android:hint="15" />
-        </LinearLayout>
-    </RadioGroup>
+        </RadioGroup>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayoutTemperatureStart"
+            android:id="@+id/txtTemperature"
+            android:textAlignment="center"
+            android:hint="15"
+            android:layout_gravity="bottom" />
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Gewünschte Konsistenz"
         android:id="@+id/lblConsistency"
-        android:layout_below="@+id/rgTemperature"
+        android:layout_below="@+id/linearLayoutTemperatureStart"
         android:layout_alignParentStart="true"
         android:paddingTop="10sp"/>
     <RadioGroup
