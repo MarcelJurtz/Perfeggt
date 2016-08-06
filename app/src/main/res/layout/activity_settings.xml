@@ -7,18 +7,23 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.jurtz.android.pefectegg.SettingsActivity">
+    tools:context="com.jurtz.android.pefectegg.SettingsActivity"
+    android:background="@color/mainBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/linearLayoutWeight">
+        android:id="@+id/linearLayoutWeight"
+        android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gewicht in Gramm:"
+            android:text="Gewicht:"
             android:id="@+id/lblWeight"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:textColor="@color/mainForeground"
+            android:textSize="24dp"
+            android:textStyle="bold" />
 
         <EditText
             android:layout_width="match_parent"
@@ -27,7 +32,16 @@
             android:layout_alignBottom="@+id/textView"
             android:layout_toEndOf="@+id/textView"
             android:textAlignment="center"
-            android:hint="60" />
+            android:hint="60"
+            android:textSize="24dp"
+            android:textColor="@color/mainForeground"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="g."
+            android:id="@+id/txtGramEnding"
+            android:textColor="@color/mainForeground"
+            android:textSize="24dp"/>
     </LinearLayout>
 
 
@@ -37,12 +51,18 @@
         android:text="Temperatur"
         android:id="@+id/lblTemperature"
         android:layout_below="@+id/linearLayoutWeight"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="@color/mainForeground"
+        android:textSize="24dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp"
+        android:textStyle="bold" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linearLayoutTemperatureStart"
-        android:layout_below="@id/lblTemperature">
+        android:layout_below="@id/lblTemperature"
+        android:background="@drawable/border">
 
 
         <RadioGroup
@@ -55,18 +75,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Raum (21°C)"
-                android:id="@+id/rbTemperatureRoom" />
+                android:id="@+id/rbTemperatureRoom"
+                android:textColor="@color/mainForeground"
+                android:textSize="18dp" />
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Kühlschrank (4°C)"
                 android:id="@+id/rbTemperatureFridge"
-                android:checked="true" />
+                android:checked="true"
+                android:textColor="@color/mainForeground"
+                android:textSize="18dp" />
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Andere (in °C):"
-                android:id="@+id/rbTemperatureOther" />
+                android:id="@+id/rbTemperatureOther"
+                android:textColor="@color/mainForeground"
+                android:textSize="18dp" />
         </RadioGroup>
         <EditText
             android:layout_width="match_parent"
@@ -75,7 +101,9 @@
             android:id="@+id/txtTemperature"
             android:textAlignment="center"
             android:hint="15"
-            android:layout_gravity="bottom" />
+            android:layout_gravity="bottom"
+            android:textColor="@color/mainForeground"
+            android:textSize="18dp" />
     </LinearLayout>
 
     <TextView
@@ -85,47 +113,64 @@
         android:id="@+id/lblConsistency"
         android:layout_below="@+id/linearLayoutTemperatureStart"
         android:layout_alignParentStart="true"
-        android:paddingTop="10sp"/>
+        android:paddingTop="15dp"
+        android:textColor="@color/mainForeground"
+        android:textSize="24dp"
+        android:paddingBottom="5dp"
+        android:textStyle="bold" />
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/lblConsistency"
         android:layout_alignParentEnd="true"
-        android:id="@+id/rgConsistency">
+        android:id="@+id/rgConsistency"
+        android:background="@drawable/border">
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="sehr weich"
-            android:id="@+id/rbConsistencySoft" />
+            android:id="@+id/rbConsistencySoft"
+            android:textColor="@color/mainForeground"
+            android:textSize="18dp" />
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="wachsweich"
             android:id="@+id/rbConsistencyMedium"
-            android:checked="true" />
+            android:checked="true"
+            android:textColor="@color/mainForeground"
+            android:textSize="18dp" />
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="eher hart"
-            android:id="@+id/rbConsistencyHard" />
+            android:id="@+id/rbConsistencyHard"
+            android:textColor="@color/mainForeground"
+            android:textSize="18dp" />
     </RadioGroup>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linearLayoutHeight"
-        android:layout_below="@+id/rgConsistency">
+        android:layout_below="@+id/rgConsistency"
+        android:paddingTop="15dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Höhe über NN in Meter:"
-            android:id="@+id/lblHeightAboveSea"/>
+            android:text="Höhe über NN:"
+            android:id="@+id/lblHeightAboveSea"
+            android:textColor="@color/mainForeground"
+            android:textSize="24dp"
+            android:textStyle="bold" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtHeightAboveSea"
             android:hint="300"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="@color/mainForeground"
+            android:textSize="24dp" />
     </LinearLayout>
 
     <Button

@@ -25,6 +25,8 @@ public class TimerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer);
 
+        getSupportActionBar().hide();
+
         countdownHandler = new Handler();
 
         // Sekundenangabe für Timer aus Aufruf beziehen
