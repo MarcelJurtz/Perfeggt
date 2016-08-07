@@ -1,13 +1,16 @@
 package com.jurtz.android.pefectegg;
 
 import android.graphics.Color;
+import android.media.Image;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,7 +19,7 @@ import org.w3c.dom.Text;
 public class TimerActivity extends AppCompatActivity {
 
     TextView lblTime;
-    Button cmdStartTimer;
+    ImageButton cmdStartTimer;
     int cookingTime;
     private Handler countdownHandler;
 
@@ -26,6 +29,7 @@ public class TimerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_timer);
 
         getSupportActionBar().hide();
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         countdownHandler = new Handler();
 
@@ -41,14 +45,15 @@ public class TimerActivity extends AppCompatActivity {
             cookingTime = (int) savedInstanceState.getSerializable("cookingtime_seconds");
         }
 
-        cookingTime = 15;
-        Toast.makeText(getApplicationContext(), cookingTime + "", Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), cookingTime + "", Toast.LENGTH_LONG).show();
 
         lblTime = (TextView) findViewById(R.id.lblTimer);
-        cmdStartTimer = (Button) findViewById(R.id.cmdStartTimer);
+        updateText(cookingTime, lblTime);
+        cmdStartTimer = (ImageButton) findViewById(R.id.cmdStartTimer);
         cmdStartTimer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                cmdStartTimer.setVisibility(View.INVISIBLE);
                 countdownHandler.postDelayed(countdownRunnable, 0);
             }
         });
@@ -59,7 +64,7 @@ public class TimerActivity extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode == KeyEvent.KEYCODE_BACK) {
             countdownHandler.removeMessages(0);
-            Toast.makeText(getApplicationContext(),"REMOVE CALLBACK",Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(),"REMOVE CALLBACK",Toast.LENGTH_SHORT).show();
         }
         return super.onKeyDown(keyCode,event);
     }
@@ -70,7 +75,7 @@ public class TimerActivity extends AppCompatActivity {
             if (cookingTime < -8) {
                 // Timer beenden, wenn Zeit abgelaufen ist
                 countdownHandler.removeMessages(0);
-                Toast.makeText(getApplicationContext(), "REMOVE CALLBACK", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "REMOVE CALLBACK", Toast.LENGTH_SHORT).show();
             } else if(cookingTime < 0) {
                 toggleTextColor(lblTime,cookingTime);
                 cookingTime--;

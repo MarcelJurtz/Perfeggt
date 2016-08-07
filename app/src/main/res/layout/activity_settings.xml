@@ -34,7 +34,8 @@
             android:textAlignment="center"
             android:hint="60"
             android:textSize="24dp"
-            android:textColor="@color/mainForeground"/>
+            android:textColor="@color/mainForeground"
+            android:textColorHint="@color/hintColor" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -103,7 +104,8 @@
             android:hint="15"
             android:layout_gravity="bottom"
             android:textColor="@color/mainForeground"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:textColorHint="@color/hintColor" />
     </LinearLayout>
 
     <TextView
@@ -170,14 +172,18 @@
             android:hint="300"
             android:textAlignment="center"
             android:textColor="@color/mainForeground"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:textColorHint="@color/hintColor" />
     </LinearLayout>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Berechnen"
+        android:background="@drawable/buttonshape"
+        android:textColor="@color/mainForeground"
         android:id="@+id/cmdCalculateTime"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:stateListAnimator="@null"/>
 </RelativeLayout>

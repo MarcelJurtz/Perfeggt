@@ -50,6 +50,7 @@ public class SettingsActivity extends AppCompatActivity {
         txtWeight = (TextView)findViewById(R.id.txtWeight);
         txtHeightAboveSea = (TextView)findViewById(R.id.txtHeightAboveSea);
         txtTemperature = (TextView)findViewById(R.id.txtTemperature);
+        txtTemperature.setVisibility(View.INVISIBLE);
 
         rbTemperatureRoom = (RadioButton)findViewById(R.id.rbTemperatureRoom);
         rbTemperatureFridge = (RadioButton)findViewById(R.id.rbTemperatureFridge);
