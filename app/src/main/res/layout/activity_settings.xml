@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gewicht:"
+            android:text="Gewicht (g):"
             android:id="@+id/lblWeight"
             android:layout_alignParentStart="true"
             android:textColor="@color/mainForeground"
@@ -36,13 +36,6 @@
             android:textSize="24dp"
             android:textColor="@color/mainForeground"
             android:textColorHint="@color/hintColor" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="g."
-            android:id="@+id/txtGramEnding"
-            android:textColor="@color/mainForeground"
-            android:textSize="24dp"/>
     </LinearLayout>
 
 
@@ -90,7 +83,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Andere (in °C):"
+                android:text="Andere (°C):"
                 android:id="@+id/rbTemperatureOther"
                 android:textColor="@color/mainForeground"
                 android:textSize="18dp" />
@@ -160,7 +153,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Höhe über NN:"
+            android:text="Höhe über NN (m):"
             android:id="@+id/lblHeightAboveSea"
             android:textColor="@color/mainForeground"
             android:textSize="24dp"

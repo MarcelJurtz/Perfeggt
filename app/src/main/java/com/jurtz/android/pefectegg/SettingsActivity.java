@@ -101,7 +101,17 @@ public class SettingsActivity extends AppCompatActivity {
 
                 // Gewicht
                 try {
-                    weight = Double.parseDouble(txtWeight.getText().toString());
+                    if(txtWeight.getText().toString().toLowerCase().equals("s")) {
+                        weight = 50.0;
+                    } else if(txtWeight.getText().toString().toLowerCase().equals("m")) {
+                        weight = 58.0;
+                    } else if(txtWeight.getText().toString().toLowerCase().equals("l")) {
+                        weight = 68.0;
+                    } else if(txtWeight.getText().toString().toLowerCase().equals("xl")) {
+                        weight = 75.0;
+                    } else {
+                        weight = Double.parseDouble(txtWeight.getText().toString());
+                    }
                 } catch(Exception ex) {
                     entriesOk = false;
                 }
