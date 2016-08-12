@@ -48,7 +48,7 @@ public class SettingsActivity extends AppCompatActivity {
         rbConsistencyHard = (RadioButton)findViewById(R.id.rbConsistencyHard);
 
         txtWeight = (TextView)findViewById(R.id.txtWeight);
-        txtHeightAboveSea = (TextView)findViewById(R.id.txtHeightAboveSea);
+        txtHeightAboveSea = (TextView)findViewById(R.id.txtHeight);
         txtTemperature = (TextView)findViewById(R.id.txtTemperature);
         txtTemperature.setVisibility(View.INVISIBLE);
 
