@@ -1,26 +1,26 @@
 <resources>
     <string name="app_name">perfeggt</string>
 
-    <string name="weight_header">Gewicht:</string>
+    <string name="weight_header">Weight:</string>
 
-    <string name="temperature_header">Temperatur</string>
-    <string name="temperature_entry_room">Raumtemperatur (21°C)</string>
-    <string name="temperature_entry_fridge">Kühlschrank (4°C)</string>
-    <string name="temperature_entry_custom">Andere (°C):</string>
+    <string name="temperature_header">Temperature</string>
+    <string name="temperature_entry_room">Room (21°C)</string>
+    <string name="temperature_entry_fridge">Fridge (4°C)</string>
+    <string name="temperature_entry_custom">Custom (°C):</string>
 
-    <string name="consistency_header">Gewünschte Konsistenz</string>
-    <string name="consistency_soft">Sehr weich</string>
-    <string name="consistency_medium">Wachsweich</string>
-    <string name="consistency_hard">Eher hart</string>
+    <string name="consistency_header">Preferred Consistency</string>
+    <string name="consistency_soft">Soft</string>
+    <string name="consistency_medium">Medium</string>
+    <string name="consistency_hard">Rather hard</string>
 
-    <string name="height_header">Höhe über NN:</string>
+    <string name="height_header">Height above sea level:</string>
 
-    <string name="calculate">Berechnen</string>
+    <string name="calculate">Calculate</string>
 
     <string name="unit_gram">g.</string>
     <string name="unit_meter">m.</string>
 
-    <string name="completed_header">Fertig!</string>
-    <string name="stop_alarm">Alarm beenden</string>
-    <string name="start_timer">Start!</string>
+    <string name="completed_header">Done!</string>
+    <string name="stop_alarm">Stop alarm</string>
+    <string name="start_timer">Go!</string>
 </resources>
