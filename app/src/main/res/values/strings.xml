@@ -5,7 +5,7 @@
 
     <string name="temperature_header">Temperatur</string>
     <string name="temperature_entry_room">Raumtemperatur (21°C)</string>
-    <string name="temperature_entry_fridge">Kühlschrank (21°C)</string>
+    <string name="temperature_entry_fridge">Kühlschrank (4°C)</string>
     <string name="temperature_entry_custom">Andere (°C):</string>
 
     <string name="consistency_header">Gewünschte Konsistenz</string>
@@ -19,4 +19,8 @@
 
     <string name="unit_gram">g.</string>
     <string name="unit_meter">m.</string>
+
+    <string name="completed_header">Fertig!</string>
+    <string name="stop_alarm">Alarm beenden</string>
+    <string name="start_timer">Start!</string>
 </resources>

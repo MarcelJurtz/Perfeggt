@@ -1,5 +1,8 @@
 package com.jurtz.android.pefectegg;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.Image;
 import android.os.CountDownTimer;
@@ -16,10 +19,12 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import static android.content.Context.ALARM_SERVICE;
+
 public class TimerActivity extends AppCompatActivity {
 
     TextView lblTime;
-    ImageButton cmdStartTimer;
+    Button cmdStartTimer;
     int cookingTime;
     private Handler countdownHandler;
 
@@ -31,7 +36,7 @@ public class TimerActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        countdownHandler = new Handler();
+        //countdownHandler = new Handler();
 
         // Sekundenangabe für Timer aus Aufruf beziehen
         if (savedInstanceState == null) {
@@ -45,8 +50,23 @@ public class TimerActivity extends AppCompatActivity {
             cookingTime = (int) savedInstanceState.getSerializable("cookingtime_seconds");
         }
 
+        lblTime = (TextView) findViewById(R.id.lblTimer);
+        int minutes = cookingTime / 60;
+        int seconds = cookingTime % 60;
+        lblTime.setText(String.format("%02d", minutes) + ":" + String.format("%02d", seconds));
+
+        cmdStartTimer = (Button) findViewById(R.id.cmdStartTimer);
+        cmdStartTimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startAlert(cookingTime);
+                finish();
+            }
+        });
+
         //Toast.makeText(getApplicationContext(), cookingTime + "", Toast.LENGTH_LONG).show();
 
+        /*
         lblTime = (TextView) findViewById(R.id.lblTimer);
         updateText(cookingTime, lblTime);
         cmdStartTimer = (ImageButton) findViewById(R.id.cmdStartTimer);
@@ -57,9 +77,10 @@ public class TimerActivity extends AppCompatActivity {
                 countdownHandler.postDelayed(countdownRunnable, 0);
             }
         });
+        */
 
     }
-    // Timer beenden wenn Zurück gedrückt wird
+    /* Timer beenden wenn Zurück gedrückt wird
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode == KeyEvent.KEYCODE_BACK) {
@@ -91,6 +112,7 @@ public class TimerActivity extends AppCompatActivity {
 
     // Textfeld mit neuem Wert updaten
     // Zeit in Sekunden
+    /*
     public void updateText(int time, TextView lbl) {
         int seconds = time%60;
         int minutes = (time-seconds)/60;
@@ -113,5 +135,17 @@ public class TimerActivity extends AppCompatActivity {
         } else {
             txt.setTextColor(Color.RED);
         }
+    }
+    */
+
+    public void startAlert(int seconds) {
+        seconds = 5;
+        Intent intent = new Intent(this, CustomBroadcastReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                this.getApplicationContext(), 234324243, intent, 0);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()
+                + (seconds * 1000), pendingIntent);
+        Toast.makeText(this, "Alarm set in " + seconds + " seconds", Toast.LENGTH_LONG).show();
     }
 }
