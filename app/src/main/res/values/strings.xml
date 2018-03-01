@@ -1,3 +1,22 @@
 <resources>
-    <string name="app_name">perfeEGGt</string>
+    <string name="app_name">perfeggt</string>
+
+    <string name="weight_header">Gewicht:</string>
+
+    <string name="temperature_header">Temperatur</string>
+    <string name="temperature_entry_room">Raumtemperatur (21°C)</string>
+    <string name="temperature_entry_fridge">Kühlschrank (21°C)</string>
+    <string name="temperature_entry_custom">Andere (°C):</string>
+
+    <string name="consistency_header">Gewünschte Konsistenz</string>
+    <string name="consistency_soft">Sehr weich</string>
+    <string name="consistency_medium">Wachsweich</string>
+    <string name="consistency_hard">Eher hart</string>
+
+    <string name="height_header">Höhe über NN:</string>
+
+    <string name="calculate">Berechnen</string>
+
+    <string name="unit_gram">g.</string>
+    <string name="unit_meter">m.</string>
 </resources>

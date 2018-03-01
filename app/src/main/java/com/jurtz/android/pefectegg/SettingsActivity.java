@@ -31,7 +31,6 @@ public class SettingsActivity extends AppCompatActivity {
     private final int TEMPERATURE_FRIDGE = 4;
     private final int TEMPERATURE_ROOM = 20;
 
-    // gewünschte Innentemperatur des Eis
     private final int TEMPERATURE_SOFT = 62;
     private final int TEMPERATURE_MEDIUM = 72;
     private final int TEMPERATURE_HARD = 82;

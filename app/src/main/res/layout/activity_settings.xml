@@ -14,6 +14,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -30,7 +31,7 @@
                     android:layout_centerVertical="true"
                     android:id="@+id/lblWeightInfo"
 
-                    android:text="Gewicht:"
+                    android:text="@string/weight_header"
                     android:textColor="@color/mainForeground"
                     android:textSize="24dp"
                     android:textStyle="bold" />
@@ -44,7 +45,7 @@
                     android:textColor="@color/mainForeground"
                     android:textSize="24dp"
                     android:textStyle="bold"
-                    android:text="g." />
+                    android:text="@string/unit_gram" />
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -52,7 +53,6 @@
                     android:layout_toStartOf="@id/lblWeightUnit"
                     android:layout_centerVertical="true"
                     android:id="@+id/txtWeight"
-
                     android:textAlignment="center"
                     android:hint="60"
                     android:textSize="24dp"
@@ -66,7 +66,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Temperatur"
+                android:text="@string/temperature_header"
                 android:id="@+id/lblTemperature"
                 android:layout_below="@+id/linearLayoutWeight"
                 android:layout_alignParentStart="true"
@@ -92,14 +92,14 @@
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Raum (21°C)"
+                        android:text="@string/temperature_entry_room"
                         android:id="@+id/rbTemperatureRoom"
                         android:textColor="@color/mainForeground"
                         android:textSize="18dp" />
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Kühlschrank (4°C)"
+                        android:text="@string/temperature_entry_fridge"
                         android:id="@+id/rbTemperatureFridge"
                         android:checked="true"
                         android:textColor="@color/mainForeground"
@@ -107,7 +107,7 @@
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Andere (°C):"
+                        android:text="@string/temperature_entry_custom"
                         android:id="@+id/rbTemperatureOther"
                         android:textColor="@color/mainForeground"
                         android:textSize="18dp" />
@@ -130,7 +130,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Gewünschte Konsistenz"
+                android:text="@string/consistency_header"
                 android:id="@+id/lblConsistency"
                 android:layout_below="@+id/linearLayoutTemperatureStart"
                 android:layout_alignParentStart="true"
@@ -149,14 +149,14 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="sehr weich"
+                    android:text="@string/consistency_soft"
                     android:id="@+id/rbConsistencySoft"
                     android:textColor="@color/mainForeground"
                     android:textSize="18dp" />
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="wachsweich"
+                    android:text="@string/consistency_medium"
                     android:id="@+id/rbConsistencyMedium"
                     android:checked="true"
                     android:textColor="@color/mainForeground"
@@ -164,7 +164,7 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="eher hart"
+                    android:text="@string/consistency_hard"
                     android:id="@+id/rbConsistencyHard"
                     android:textColor="@color/mainForeground"
                     android:textSize="18dp" />
@@ -181,7 +181,7 @@
                     android:layout_centerVertical="true"
                     android:id="@+id/lblHeightInfo"
 
-                    android:text="Höhe über NN:"
+                    android:text="@string/height_header"
                     android:textColor="@color/mainForeground"
                     android:textSize="24dp"
                     android:textStyle="bold" />
@@ -194,7 +194,7 @@
 
                     android:id="@+id/lblHeightUnit"
 
-                    android:text="m."
+                    android:text="@string/unit_meter"
                     android:textColor="@color/mainForeground"
                     android:textStyle="bold"
                     android:textSize="24dp" />
@@ -218,7 +218,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Berechnen"
+                android:text="@string/calculate"
                 android:background="@drawable/buttonshape"
                 android:textColor="@color/mainForeground"
                 android:id="@+id/cmdCalculateTime"
