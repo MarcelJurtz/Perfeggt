@@ -80,7 +80,6 @@ public class SettingsActivity extends AppCompatActivity {
         });
 
         final Button cmdCalculateTime = (Button) findViewById(R.id.cmdCalculateTime);
-        //final Intent timerIntent = new Intent(this, TimerActivity.class);
 
         br = new BroadcastReceiver() {
             @Override
@@ -96,10 +95,7 @@ public class SettingsActivity extends AppCompatActivity {
         cmdCalculateTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //timerIntent.putExtra("cookingtime_seconds",cookingTimeSeconds);
-                //startActivity(timerIntent);
                 try {
-                    //startAlert(CalculateCookingTime());
                     Intent intent = new Intent(getApplicationContext(), TimerActivity.class);
                     intent.putExtra("cookingtime_seconds", CalculateCookingTime());
                     getApplicationContext().startActivity(intent);

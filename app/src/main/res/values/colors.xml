@@ -5,5 +5,5 @@
     <color name="colorAccent">#FFFFFF</color>
     <color name="mainForeground">#FFFFFF</color>
     <color name="mainBackground">#EFBE5C</color>
-    <color name="hintColor">#EEEEEE</color>
+    <color name="hintColor">#DDDDDD</color>
 </resources>

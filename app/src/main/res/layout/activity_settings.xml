@@ -25,38 +25,25 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/LayoutWeight">
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/lblWeightInfo"
                     android:layout_weight="3"
                     android:layout_centerVertical="true"
-                    android:id="@+id/lblWeightInfo"
-
-                    android:text="@string/weight_header"
-                    android:textColor="@color/mainForeground"
-                    android:textSize="@dimen/fontsize_header"
-                    android:textStyle="bold" />
+                    style="@style/yellowHeaderText"
+                    android:text="@string/weight_header" />
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/lblWeightUnit"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:id="@+id/lblWeightUnit"
-
-                    android:textColor="@color/mainForeground"
-                    android:textSize="@dimen/fontsize_header"
-                    android:textStyle="bold"
+                    style="@style/yellowHeaderText"
                     android:text="@string/unit_gram" />
                 <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/txtWeight"
                     android:layout_toEndOf="@id/lblWeightInfo"
                     android:layout_toStartOf="@id/lblWeightUnit"
                     android:layout_centerVertical="true"
-                    android:id="@+id/txtWeight"
+                    style="@style/yellowHeaderText"
                     android:textAlignment="center"
                     android:hint="60"
-                    android:textSize="@dimen/fontsize_header"
-                    android:textColor="@color/mainForeground"
                     android:textColorHint="@color/hintColor"
                     android:maxLines="1"
                     android:maxLength="3"/>
@@ -64,24 +51,18 @@
 
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/temperature_header"
                 android:id="@+id/lblTemperature"
+                android:text="@string/temperature_header"
+                style="@style/yellowHeaderText"
                 android:layout_below="@+id/linearLayoutWeight"
-                android:layout_alignParentStart="true"
-                android:textColor="@color/mainForeground"
-                android:textSize="@dimen/fontsize_header"
-                android:paddingTop="10dp"
-                android:paddingBottom="5dp"
-                android:textStyle="bold"/>
+                android:layout_alignParentStart="true" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/linearLayoutTemperatureStart"
                 android:layout_below="@id/lblTemperature"
                 android:background="@drawable/border">
-
 
                 <RadioGroup
                     android:layout_width="wrap_content"
@@ -90,27 +71,18 @@
                     android:layout_alignParentEnd="true"
                     android:id="@+id/rgTemperature">
                     <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/temperature_entry_room"
                         android:id="@+id/rbTemperatureRoom"
-                        android:textColor="@color/mainForeground"
-                        android:textSize="@dimen/fontsize_regular" />
+                        android:text="@string/temperature_entry_room"
+                        style="@style/yellowRadioButton" />
                     <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/temperature_entry_fridge"
                         android:id="@+id/rbTemperatureFridge"
-                        android:checked="true"
-                        android:textColor="@color/mainForeground"
-                        android:textSize="@dimen/fontsize_regular" />
+                        android:text="@string/temperature_entry_fridge"
+                        style="@style/yellowRadioButton"
+                        android:checked="true" />
                     <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/temperature_entry_custom"
                         android:id="@+id/rbTemperatureOther"
-                        android:textColor="@color/mainForeground"
-                        android:textSize="@dimen/fontsize_regular" />
+                        android:text="@string/temperature_entry_custom"
+                        style="@style/yellowRadioButton" />
                 </RadioGroup>
                 <EditText
                     android:layout_width="match_parent"
@@ -121,24 +93,18 @@
                     android:hint="15"
                     android:layout_gravity="bottom"
                     android:textColor="@color/mainForeground"
-                    android:textSize="18dp"
+                    android:textSize="@dimen/fontsize_regular"
                     android:textColorHint="@color/hintColor"
                     android:maxLength="2"
                     android:inputType="number"/>
             </LinearLayout>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/consistency_header"
                 android:id="@+id/lblConsistency"
+                android:text="@string/consistency_header"
+                style="@style/yellowHeaderText"
                 android:layout_below="@+id/linearLayoutTemperatureStart"
-                android:layout_alignParentStart="true"
-                android:paddingTop="15dp"
-                android:textColor="@color/mainForeground"
-                android:textSize="@dimen/fontsize_header"
-                android:paddingBottom="5dp"
-                android:textStyle="bold" />
+                android:layout_alignParentStart="true" />
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -147,27 +113,18 @@
                 android:id="@+id/rgConsistency"
                 android:background="@drawable/border">
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/consistency_soft"
                     android:id="@+id/rbConsistencySoft"
-                    android:textColor="@color/mainForeground"
-                    android:textSize="@dimen/fontsize_regular" />
+                    android:text="@string/consistency_soft"
+                    style="@style/yellowRadioButton" />
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/consistency_medium"
                     android:id="@+id/rbConsistencyMedium"
+                    android:text="@string/consistency_medium"
                     android:checked="true"
-                    android:textColor="@color/mainForeground"
-                    android:textSize="@dimen/fontsize_regular" />
+                    style="@style/yellowRadioButton" />
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/consistency_hard"
                     android:id="@+id/rbConsistencyHard"
-                    android:textColor="@color/mainForeground"
-                    android:textSize="@dimen/fontsize_regular" />
+                    android:text="@string/consistency_hard"
+                    style="@style/yellowRadioButton" />
             </RadioGroup>
 
             <RelativeLayout
@@ -176,55 +133,35 @@
                 android:id="@+id/LayoutHeight"
                 android:paddingTop="15dp">
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:id="@+id/lblHeightInfo"
-
-                    android:text="@string/height_header"
-                    android:textColor="@color/mainForeground"
-                    android:textSize="@dimen/fontsize_regular"
-                    android:textStyle="bold" />
+                    android:layout_centerVertical="true"
+                    style="@style/yellowHeaderText"
+                    android:text="@string/height_header" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/lblHeightUnit"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-
-                    android:id="@+id/lblHeightUnit"
-
-                    android:text="@string/unit_meter"
-                    android:textColor="@color/mainForeground"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/fontsize_regular" />
+                    style="@style/yellowHeaderText"
+                    android:text="@string/unit_meter" />
 
                 <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/txtHeight"
                     android:layout_toEndOf="@id/lblHeightInfo"
                     android:layout_toStartOf="@id/lblHeightUnit"
                     android:layout_centerVertical="true"
-
-                    android:id="@+id/txtHeight"
-
-                    android:hint="300"
+                    style="@style/yellowHeaderText"
                     android:textAlignment="center"
-                    android:textColor="@color/mainForeground"
-                    android:textSize="@dimen/fontsize_regular"
-                    android:textColorHint="@color/hintColor" />
+                    android:textColorHint="@color/hintColor"
+                    android:hint="300" />
             </RelativeLayout>
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/calculate"
-                android:background="@drawable/buttonshape"
-                android:textColor="@color/mainForeground"
                 android:id="@+id/cmdCalculateTime"
+                android:text="@string/calculate"
+                style="@style/yellowButton"
                 android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:stateListAnimator="@null"/>
+                android:layout_centerHorizontal="true" />
 
         </LinearLayout>
     </ScrollView>

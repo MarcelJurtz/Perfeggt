@@ -9,4 +9,28 @@
         <item name="android:textColorHint">@color/mainForeground</item>
     </style>
 
+    <style name="yellowButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/buttonshape</item>
+        <item name="android:textColor">@color/mainForeground</item>
+    </style>
+
+    <style name="yellowRadioButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/mainForeground</item>
+        <item name="android:textSize">@dimen/fontsize_regular</item>
+    </style>
+
+    <style name="yellowHeaderText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/mainForeground</item>
+        <item name="android:textSize">@dimen/fontsize_header</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingTop">@dimen/padding_header_top</item>
+        <item name="android:paddingBottom">@dimen/padding_header_bottom</item>
+    </style>
+
 </resources>

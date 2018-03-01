@@ -5,4 +5,7 @@
 
     <dimen name="fontsize_regular">18dp</dimen>
     <dimen name="fontsize_header">24dp</dimen>
+
+    <dimen name="padding_header_bottom">10dp</dimen>
+    <dimen name="padding_header_top">15dp</dimen>
 </resources>

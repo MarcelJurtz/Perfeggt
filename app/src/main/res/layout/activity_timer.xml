@@ -24,12 +24,9 @@
         android:textColor="@color/mainForeground"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/cmdStartTimer"
         android:text="@string/start_timer"
-        android:textColor="@color/mainForeground"
-        android:background="@drawable/buttonshape"
+        style="@style/yellowButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
 </RelativeLayout>
