@@ -1,31 +1,14 @@
 package com.jurtz.android.pefectegg;
 
-import android.app.ActionBar;
-import android.app.AlarmManager;
-import android.app.NotificationManager;
-import android.app.Notification;
-import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.opengl.Visibility;
-import android.os.SystemClock;
-import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.text.ParseException;
-import java.util.logging.Level;
-
-import static android.content.Context.ALARM_SERVICE;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -40,17 +23,6 @@ public class SettingsActivity extends AppCompatActivity {
     TextView txtWeight;
     TextView txtTemperature;
     TextView txtHeightAboveSea;
-
-    private final int TEMPERATURE_FRIDGE = 4;
-    private final int TEMPERATURE_ROOM = 20;
-
-    private final int TEMPERATURE_SOFT = 62;
-    private final int TEMPERATURE_MEDIUM = 72;
-    private final int TEMPERATURE_HARD = 82;
-
-    PendingIntent pi;
-    BroadcastReceiver br;
-    AlarmManager am;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,17 +56,6 @@ public class SettingsActivity extends AppCompatActivity {
 
         final Button cmdCalculateTime = (Button) findViewById(R.id.cmdCalculateTime);
 
-        br = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context c, Intent i) {
-                Toast.makeText(c, "Rise and Shine!", Toast.LENGTH_LONG).show();
-            }
-        };
-        registerReceiver(br, new IntentFilter("com.jurtz.android.perfectegg"));
-        pi = PendingIntent.getBroadcast(this, 0, new Intent("com.jurtz.android.perfectegg"),
-                0);
-        am = (AlarmManager) getApplicationContext().getSystemService(ALARM_SERVICE);
-
         cmdCalculateTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,7 +64,7 @@ public class SettingsActivity extends AppCompatActivity {
                     intent.putExtra(SettingsHelper.EXTRA_COOKINGTIME, CalculateCookingTime());
                     getApplicationContext().startActivity(intent);
                 } catch (Exception ex) {
-                    Toast.makeText(getApplicationContext(), "Ungültige Eingaben!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.err_invalid_input), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -115,13 +76,12 @@ public class SettingsActivity extends AppCompatActivity {
         double boilingPoint = 0;
         double weight = 0;
         int tInside = 0;
-        boolean entriesOk = true;
 
         // T Start
         if (rbTemperatureFridge.isChecked()) {
-            temperature = TEMPERATURE_FRIDGE;
+            temperature = SettingsHelper.TEMP_DEG_FRIDGE;
         } else if (rbTemperatureRoom.isChecked()) {
-            temperature = TEMPERATURE_ROOM;
+            temperature = SettingsHelper.TEMP_DEG_ROOM;
         } else {
             try {
                 temperature = Double.parseDouble(txtTemperature.getText().toString());
@@ -132,7 +92,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         // Höhe
         try {
-            boilingPoint = getBoilingPoint(Double.parseDouble(txtHeightAboveSea.getText().toString()));
+            boilingPoint = CookingTimeCalculator.calcBoilingPoint(Double.parseDouble(txtHeightAboveSea.getText().toString()));
         } catch (Exception ex) {
             throw ex;
         }
@@ -156,25 +116,16 @@ public class SettingsActivity extends AppCompatActivity {
 
         // T Ziel
         if (rbConsistencyHard.isChecked()) {
-            tInside = TEMPERATURE_HARD;
+            tInside = SettingsHelper.TEMP_DEG_HARD;
         } else if (rbConsistencyMedium.isChecked()) {
-            tInside = TEMPERATURE_MEDIUM;
+            tInside = SettingsHelper.TEMP_DEG_MEDIUM;
         } else {
-            tInside = TEMPERATURE_SOFT;
+            tInside = SettingsHelper.TEMP_DEG_SOFT;
         }
 
-        double cookingTime = 0.465 * Math.pow(weight, 2.0 / 3.0) * Math.log(0.76 * ((boilingPoint - temperature) / (boilingPoint - tInside)));
-        int cookingTimeSeconds = (int) Math.round(cookingTime * 60);
+        double cookingTimeMinutes = CookingTimeCalculator.calcCookingTimeMinutes(weight, boilingPoint, temperature, tInside);
+        int cookingTimeSeconds = (int) Math.round(cookingTimeMinutes * 60);
 
         return cookingTimeSeconds;
-    }
-
-
-    // Ermittlung des Siedepunkts kochenden Wassers nach Höhe über NN
-    private double getBoilingPoint(double heightAboveSea) {
-        double temp = 100;
-        double desc = heightAboveSea / 285;
-        temp -= desc;
-        return temp;
     }
 }

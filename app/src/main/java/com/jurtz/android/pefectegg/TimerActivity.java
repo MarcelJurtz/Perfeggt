@@ -6,7 +6,6 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.provider.Settings;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -63,9 +62,6 @@ public class TimerActivity extends AppCompatActivity {
         } else {
             cookingTime = (int) savedInstanceState.getSerializable(SettingsHelper.EXTRA_COOKINGTIME);
         }
-
-        // Test
-        cookingTime = 10;
 
         lblTime = (TextView) findViewById(R.id.lblTimer);
         int minutes = cookingTime / 60;
@@ -125,8 +121,9 @@ public class TimerActivity extends AppCompatActivity {
     }
 
     private int getNotificationIcon() {
-        boolean useWhiteIcon = (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP);
-        return useWhiteIcon ? R.drawable.notification_icon : R.drawable.notification_icon;
-        // TODO return useWhiteIcon ? R.drawable.icon_silhouette : R.drawable.ic_launcher;
+        // TODO
+        //boolean useWhiteIcon = (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP);
+        //return useWhiteIcon ? R.drawable.ic_schema : R.drawable.ic_schema;
+        return R.drawable.ic_schema;
     }
 }
