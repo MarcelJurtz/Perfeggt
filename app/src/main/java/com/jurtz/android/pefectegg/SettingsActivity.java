@@ -2,6 +2,8 @@ package com.jurtz.android.pefectegg;
 
 import android.app.ActionBar;
 import android.app.AlarmManager;
+import android.app.NotificationManager;
+import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -9,6 +11,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.opengl.Visibility;
 import android.os.SystemClock;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -97,7 +100,7 @@ public class SettingsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     Intent intent = new Intent(getApplicationContext(), TimerActivity.class);
-                    intent.putExtra("cookingtime_seconds", CalculateCookingTime());
+                    intent.putExtra(SettingsHelper.EXTRA_COOKINGTIME, CalculateCookingTime());
                     getApplicationContext().startActivity(intent);
                 } catch (Exception ex) {
                     Toast.makeText(getApplicationContext(), "Ungültige Eingaben!", Toast.LENGTH_SHORT).show();

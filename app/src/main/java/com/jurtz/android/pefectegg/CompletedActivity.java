@@ -1,5 +1,6 @@
 package com.jurtz.android.pefectegg;
 
+import android.app.NotificationManager;
 import android.media.MediaPlayer;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -26,6 +27,8 @@ public class CompletedActivity extends AppCompatActivity {
         if(sound == null){
             sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         }
+
+        SettingsHelper.cancelNotification((NotificationManager)getSystemService(NOTIFICATION_SERVICE));
 
         mp = MediaPlayer.create(getApplicationContext(), sound);
         mp.start();

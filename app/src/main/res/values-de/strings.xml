@@ -23,4 +23,13 @@
     <string name="completed_header">Fertig!</string>
     <string name="stop_alarm">Alarm beenden</string>
     <string name="start_timer">Start!</string>
+
+    <string name="notification_ticker_text">Timer gestartet!</string>
+    <string name="notification_content">Alarm gesetzt auf:</string>
+
+    <string name="cancel_confirmation_dialog_title">Alarm beenden?</string>
+    <string name="cancel_confirmation_dialog_text">Möchtest du den Countdown abbrechen?</string>
+
+    <string name="confirm_yes">Ja</string>
+    <string name="confirm_no">Nein</string>
 </resources>
